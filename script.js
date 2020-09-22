@@ -53,7 +53,7 @@ async function getQuote() {
         complete();
 
     } catch (error) {
-        //getQuote();
+        getQuote();
         console.log('Whoops, no quote', error);
         complete();
     }
