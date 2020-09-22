@@ -23,7 +23,6 @@ body {
     padding: 30px;
     border-radius: 5px;
     background-color: rgba(20, 20, 20, 0.5);
-    /* box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.2); */
 }
 
 .quote-text {
@@ -107,8 +106,7 @@ button:active {
     .quote-container {
         margin: auto 20px;
     }
-
     .quote-text {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
     }
 }
