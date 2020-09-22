@@ -13,7 +13,7 @@ $ cd path/to/your/folder/quote-generator/
 2. Clone repository by typing the following in your terminal:
 
 ```bash
-$ git clone git@github.com:WPBC/metahash-rewards.git
+$ git clone git@github.com:WPBC/quote-generator.git
 ```
 
 3. Open the index file to view the quote generator. All done.
