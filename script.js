@@ -4,15 +4,15 @@ const authorText = document.getElementById('author');
 const twitterBtn = document.getElementById('twitter');
 const newQuoteBtn = document.getElementById('new-quote');
 const loader = document.getElementById('loader');
+const errorMessage = document.getElementById('error');
+const errorCounter = 0;
 
-// Show loading
-function loading() {
+function showLoadingSpinner() {
     loader.hidden = false;
     quoteContainer.hidden = true;
 }
 
-// Hide loading
-function complete() {
+function removeLoadingSpinner() {
     if (!loader.hidden) {
         loader.hidden = true;
         quoteContainer.hidden = false;
@@ -21,7 +21,7 @@ function complete() {
 
 // Get Quote Function
 async function getQuote() {
-    loading();
+    showLoadingSpinner();
 
     // Add proxy url to combat CORS error
     const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
@@ -49,13 +49,17 @@ async function getQuote() {
 
         quoteText.innerText = data.quoteText;
 
-        // Stop loader and show quote
-        complete();
-
+        removeLoadingSpinner();
     } catch (error) {
-        getQuote();
-        console.log('Whoops, no quote', error);
-        complete();
+        // Retry function 5 times then trigger error message
+        if (errorCounter < 5){
+            errorCounter++
+            window.setTimeout(getQuote(), 1000);
+        } else {
+            errorMessage.innerText = 'Sorry, something went wrong. Please try again!';
+        }
+        // Remove spinner to show original quote if error occurs
+        removeLoadingSpinner();
     }
 }
 
