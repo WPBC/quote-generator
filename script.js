@@ -5,7 +5,7 @@ const twitterBtn = document.getElementById('twitter');
 const newQuoteBtn = document.getElementById('new-quote');
 const loader = document.getElementById('loader');
 const errorMessage = document.getElementById('error');
-const errorCounter = 0;
+var errorCounter = 0;
 
 function showLoadingSpinner() {
     loader.hidden = false;
@@ -54,7 +54,7 @@ async function getQuote() {
         // Retry function 5 times then trigger error message
         if (errorCounter < 5){
             errorCounter++
-            window.setTimeout(getQuote(), 1000);
+            getQuote();
         } else {
             errorMessage.innerText = 'Sorry, something went wrong. Please try again!';
         }
