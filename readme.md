@@ -1,8 +1,8 @@
 # Quote Generator
 
-Generate famous quotes using the [Forismatic](https://forismatic.com/en/) API, with the added ability to share to social media.
+Generate famous quotes using the [Forismatic](https://forismatic.com/en/){:target="_blank"} API, with the added ability to share to social media.
 
-View Quote Generator [Demo](https://wpbc.github.io/quote-generator/)
+View Quote Generator [Demo](https://wpbc.github.io/quote-generator/){:target="_blank"}
 
 ### Installation
 
