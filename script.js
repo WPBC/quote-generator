@@ -48,18 +48,19 @@ async function getQuote() {
         }
 
         quoteText.innerText = data.quoteText;
+        
+        errorMessage.innerText = '';
 
         removeLoadingSpinner();
     } catch (error) {
-        // Retry function 5 times then trigger error message
-        if (errorCounter < 5){
+        // Retry getQuote 'x' amount of times, then trigger error message
+        if (errorCounter < 10){
             errorCounter++
             getQuote();
         } else {
+            removeLoadingSpinner();
             errorMessage.innerText = 'Sorry, something went wrong. Please try again!';
         }
-        // Remove spinner to show original quote if error occurs
-        removeLoadingSpinner();
     }
 }
 
